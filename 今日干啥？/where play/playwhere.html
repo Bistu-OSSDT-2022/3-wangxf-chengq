@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>哪儿玩去</title>
+        <style>
+            @font-face {
+                font-family: "Wawa";
+                font-style: normal;
+                font-weight: 400;
+                src: url(font.ttf);
+            }
+
+            #app {
+                transform: scale(0.4);
+                transform-origin: 0 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                font-family: "Wawa";
+            }
+
+            body {
+                background-color: #f7cec8;
+                user-select: none;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            .bg {
+                position: fixed;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <img src="bj.png" class="bg" />
+            <div
+                style="
+                    text-align: center;
+                    padding-top: 50px;
+                    margin-left: 250px;
+                    font-size: 100px;
+                    width: 600px;
+                    color: #000000;
+                "
+            >
+                今天去哪玩呢
+            </div>
+
+            <div
+                style="
+                    border: dotted #7FFFD4 10px;
+                    margin-top: 350px;
+                    color: #7FFFD4;
+                    font-size: 80px;
+                    padding: 5px;
+                    text-align: center;
+                    border-radius: 20px;
+                    width: 600px;
+                    margin-left: 250px;
+                    cursor: pointer;
+                "
+                onclick="fun()"
+                id="text"
+            >
+                摇一摇！
+            </div>
+            <div
+                style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 500px;
+                    margin-left: 320px;
+                    margin-top: 40px;
+                "
+            >
+                <img src="place/icon/1.png" style="width: 500px;display: none;" id="img1" />
+            </div>
+            <div
+                style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 500px;
+                    margin-left: 320px;
+                    margin-top: -10px;
+                "
+            >
+                <img src="place/text/1.png" style="height: 50px;display: none;" id="img2"/>
+                
+            </div>
+            <div id="test"></div>
+        </div>
+        <div style="position:fixed; bottom: 10px; text-align: center;width: 100vw;color: #aaa;font-size: 12px;">by xianfei</div>
+    </body>
+    <script>
+        var i = 1;
+        var time = 0
+        const img1 = document.getElementById("img1");
+        const img2 = document.getElementById("img2");
+        const text = document.getElementById("text");
+        function fun(){
+            i=1
+            time = Date.now()
+            text.innerText = "正在摇……"
+            img1.style.display = ''
+            img2.style.display = ''
+            var fun2 = (t)=> setTimeout(function(){
+                
+                const n = Math.floor(Math.random() * 10)+1;
+                img1.src = "place/icon/"+n+".png";
+                img2.src = "place/text/"+n+".png";
+                i *=1.1
+                if(Date.now() - time < 4000)fun2(i*20)
+                else{
+                    text.innerText = "换个地儿！"
+                }
+            },t);
+            fun2(i)
+        }
+
+        const test = document.getElementById("test");
+        for (let n = 1; n <= 10; n++) {
+            test.innerHTML += `<link rel="preload" as="image" href="${"place/icon/"+n+".png"}">`+`<link rel="preload" as="image" href="${"place/text/"+n+".png"}">`
+            
+        }
+
+        window.onresize = () =>{
+            const scale = window.innerWidth / window.innerHeight;
+            if(scale > (9.0/16.0)){
+                document.getElementById("app").style.left = (window.innerWidth - 1080*(window.innerHeight/1920))/2+'px'
+                document.getElementById("app").style.transform = "scale("+(window.innerHeight/1920)+")";
+            }
+            else {
+                document.getElementById("app").style.left = 0
+                document.getElementById("app").style.transform = "scale("+(window.innerWidth/1080)+")";
+            }
+        }
+        window.onresize()
+
+    </script>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>今日干啥？</title>
+        <style>
+            @font-face {
+                font-family: "Wawa";
+                font-style: normal;
+                font-weight: 400;
+                src: url(font.ttf);
+            }
+
+            #app {
+                transform: scale(0.4);
+                transform-origin: 0 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                font-family: "Wawa";
+            }
+
+            body {
+                background-color: #f7cec8;
+                user-select: none;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            .bg {
+                position: fixed;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <img src="bj.png" class="bg" />
+            <div
+                style="
+                    text-align: center;
+                    padding-top: 220px;
+                    margin-left: 400px;
+                    font-size: 78px;
+                    width: 500px;
+                    color: #d07255;
+                "
+            >
+                今日干啥？
+            </div>
+            <a href="c:\Users\86187\Desktop\今日干啥？\WatchWhatAnimate\WatchWhatAnimate.html" 
+            style="
+            font-size: 45px;
+            color: #ba883c;
+            margin-left: 380px;
+            margin-top: 100px;
+            text-decoration: none;
+            "
+            >今日看啥番？</a>
+
+            <br>
+
+            <a href="c:\Users\86187\Desktop\今日干啥？\read\readwhat.html" 
+            style="
+            font-size: 45px;
+            color: #d07255;
+            margin-left: 380px;
+            margin-top: 100px;
+            text-decoration: none;
+            "
+            >今日看啥书？</a>
+
+            <br>
+
+            <a href="c:\Users\86187\Desktop\今日干啥？\web--song\web-song.html" 
+            style="
+            font-size: 45px;
+            color: #772f19;
+            margin-left: 380px;
+            margin-top: 100px;
+            text-decoration: none;
+            "
+            >今日听啥歌?</a>
+
+            <br>
+
+            <a href="c:\Users\86187\Desktop\今日干啥？\where play\playwhere.html" 
+            style="
+            font-size: 45px;
+            color: #581b09;
+            margin-left: 380px;
+            top: 100px;
+            text-decoration: none;
+            "
+            >今日去哪儿？</a>
+        <div style="position:fixed; bottom: 10px; text-align: center;width: 100vw;color: #aaa;font-size: 12px;">by xianfei and Guandongzu</div>
+    </body>
+    <script>
+        var i = 1;
+        var time = 0
+        window.onresize = () =>{
+            const scale = window.innerWidth / window.innerHeight;
+            if(scale > (9.0/16.0)){
+                document.getElementById("app").style.left = (window.innerWidth - 1080*(window.innerHeight/1920))/2+'px'
+                document.getElementById("app").style.transform = "scale("+(window.innerHeight/1920)+")";
+            }
+            else {
+                document.getElementById("app").style.left = 0
+                document.getElementById("app").style.transform = "scale("+(window.innerWidth/1080)+")";
+            }
+        }
+        window.onresize()
+
+    </script>
+</html>
