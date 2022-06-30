@@ -126,7 +126,7 @@
             img3.style.display = ''
             var fun2 = (t)=> setTimeout(function(){
                 
-                const n = Math.floor(Math.random() * 4)+1;
+                const n = Math.floor(Math.random() * 20)+1;
                 img1.src = "animate/icon/"+n+".png";
                 img2.src = "animate/text/"+n+".png";
                 img3.src = "animate/introduction/"+n+".png";
@@ -140,7 +140,7 @@
         }
 
         const test = document.getElementById("test");
-        for (let n = 1; n <= 4; n++) {
+        for (let n = 1; n <= 20; n++) {
             test.innerHTML += `<link rel="preload" as="image" href="${"animate/icon/"+n+".png"}">`+`<link rel="preload" as="image" href="${"animate/text/"+n+".png"}">`+`<link rel="preload" as="image" href="${"animate/introduction/"+n+".png"}">`
             
         }
