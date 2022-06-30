@@ -7,9 +7,9 @@
 以及更多的功能和互交体验！
 ***
 # 运行画面：
-![enter image description here]()
-![enter image description here]()
-![enter image description here]()
+![1](1.png)
+![2](22.png)
+![3](333.png)
 ***
 # 网站特点：
 1. 帮助用户做选择，提供有限的内容推送，随机推送。
